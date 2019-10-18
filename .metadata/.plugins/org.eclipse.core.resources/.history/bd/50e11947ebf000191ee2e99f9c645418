@@ -1,0 +1,26 @@
+package application;
+
+import javafx.collections.ObservableList;
+
+public class ObservedCompany {
+	private String companyName;
+	private ObservableList partners;
+	
+	public ObservedCompany(String companyName) {
+		super();
+		this.companyName = companyName;
+	}
+	
+	public void addNewPartner(String partnerName){
+		
+	}
+	
+	public void removeThisPartner(String partnerName){
+		
+	}
+
+	public ObservableList collectAllMessages(){
+		
+	}
+	
+}

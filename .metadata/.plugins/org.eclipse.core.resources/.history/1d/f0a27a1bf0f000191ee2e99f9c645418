@@ -1,0 +1,40 @@
+package application;
+
+import javafx.collections.ObservableList;
+
+public class ObservedCompany {
+	private String companyName;
+	private ObservableList<ObserverPartner> partners;
+	
+	public ObservedCompany(String companyName) {
+		super();
+		this.companyName = companyName;
+	}
+	
+	public void addNewPartner(String partnerName){
+		ObserverPartner p = new ObserverPartner(this, partnerName);
+	}
+	
+	public void removeThisPartner(String partnerName){
+		
+	}
+	
+	public String getCompanyName(){
+		return companyName;
+	}
+	
+	public void sendMessageToAllPartners(String message){
+		partners.forEach((x) -> {
+			
+		});
+	}
+	
+	public ObservableList<ObserverPartner> collectAllPartners(){
+		return partners;
+	}
+
+	public ObservableList collectAllMessages(){
+		
+	}
+	
+}

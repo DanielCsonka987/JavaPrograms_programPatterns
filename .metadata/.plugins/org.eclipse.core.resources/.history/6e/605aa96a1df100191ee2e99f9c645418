@@ -1,0 +1,69 @@
+package application;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+public class ServiceObservingMessaging {
+	
+	private List<ObservedCompany> companies;
+	private ObservableList<String> companyNames;
+	private ObservableList<String> messagesOfCompany;
+	
+	public ServiceObservingMessaging() {
+		super();
+		
+		companies = new ArrayList();
+		loadInTestdatasToCompanies();
+		companyNames = FXCollections.observableArrayList();
+		messagesOfCompany = FXCollections.observableArrayList();
+	}
+	
+	private void loadInTestdatasToCompanies(){
+		companies.add(new ObservedCompany("Nokia"));
+		companies.add(new ObservedCompany("HP"));
+		companies.add(new ObservedCompany("Maxtor"));
+		companies.add(new ObservedCompany("Samsung"));
+	}
+	
+	public ObservableList<String> getTheCompaniesList(){
+		companyNames.clear();
+		for(ObservedCompany oc : companies){
+			companyNames.add(oc.getCompanyName());
+		}
+		return companyNames;
+	}
+	
+	public void addNewCompany(String companyName){
+		ObservedCompany comp = new ObservedCompany(companyName); 
+		companies.add(comp);
+	}
+	
+	public void removeThisompany(String companyName){
+		companies.removeIf((ObservedCompany x) ->
+			x.getCompanyName() == companyName);
+	}
+	
+	public ObservableList<ObserverPartner> getThisCompanyPartners(String companyName){
+		return findThisCompany(companyIndex).collectAllPartners();
+	}
+	
+	public void addPartnerToThisCompany(Integer companyIndex, String partnerName){
+		findThisCompany(companyIndex).addNewPartner(partnerName);
+	}
+	
+	public void removePartnerFromThisCompany(Integer companyIndex, Integer partnerIndex){
+		findThisCompany(companyIndex).removeThisPartner(partnerIndex);
+	}
+	
+	public ObservableList<String> getThisCompanyMessages(Integer companyIndex){
+		return findThisCompany(companyIndex).collectAllMessages();
+	}
+
+
+	private ObservedCompany findThisCompany(Integer companyIndex){
+		return (ObservedCompany)companies.get(companyIndex);
+	}
+}

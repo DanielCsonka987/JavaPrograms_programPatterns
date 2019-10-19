@@ -3,7 +3,7 @@ package application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ObserverPartner {
+public class ObserverPartner implements IObserver {
 
 	private ObservedCompany itsCompany;
 	private String nameOfPartner;
@@ -20,9 +20,10 @@ public class ObserverPartner {
 		return nameOfPartner;
 	}
 	
+	@Override
 	public void messageSending(String message){
 		messages.add(itsCompany.getCompanyName() + "->" + nameOfPartner +  ": " + message);
-		itsCompany.deliveringSuccess(nameOfPartner);
+		itsCompany.deliveringSuccessFeedback(nameOfPartner);
 	}
 	
 	public ObservableList<String> getAllSentMessages(){

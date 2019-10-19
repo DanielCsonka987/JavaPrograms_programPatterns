@@ -3,7 +3,7 @@ package application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ObservedCompany {
+public class ObservedCompany implements IObservable{
 	private String nameOfCompany;
 	private ObservableList<ObserverPartner> partners;
 	private ObservableList<String> sentMessages;
@@ -17,11 +17,13 @@ public class ObservedCompany {
 		sentMessages = FXCollections.observableArrayList();
 	}
 	
+	@Override
 	public void addNewPartner(String partnerName){
 		ObserverPartner p = new ObserverPartner(this, partnerName);
 		partners.add(p);
 	}
 	
+	@Override
 	public void removeThisPartner(String partnerName){
 		partners.removeIf( x->x.getNameOfPartner() == partnerName);
 	}
@@ -30,20 +32,22 @@ public class ObservedCompany {
 		return nameOfCompany;
 	}
 	
+	@Override
 	public void sendMessageToAllPartners(String message){
 		partners.forEach((x) -> {
 			x.messageSending(message);
 		});
 	}
 	
+	@Override
 	public void sendMessageToChosenPartner(String partnerName, String message){
 		for(ObserverPartner op : partners){
-			if(op.getNameOfPartner() == partnerName)
+			if(op.getNameOfPartner().equals(partnerName))
 				op.messageSending(message);
 		}
 	}
 	
-	public void deliveringSuccess(String partnerName){
+	public void deliveringSuccessFeedback(String partnerName){
 		System.out.println("Sending completed to " + partnerName + " at " + nameOfCompany );
 	}
 	

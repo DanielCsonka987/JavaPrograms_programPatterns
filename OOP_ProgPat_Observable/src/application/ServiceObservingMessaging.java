@@ -46,7 +46,7 @@ public class ServiceObservingMessaging {
 	
 	public void removeThisCompany(String companyName){
 		companies.removeIf((ObservedCompany x) ->
-			x.getCompanyName() == companyName);
+			x.getCompanyName().equals(companyName));
 	}
 	
 	public ObservableList<String> getThisCompanyPartners(String companyName){
@@ -76,7 +76,7 @@ public class ServiceObservingMessaging {
 	private ObservedCompany findThisCompany(String companyName){
 		for(ObservedCompany oc : companies)
 		{
-			if(oc.getCompanyName() == companyName)
+			if(oc.getCompanyName().equals(companyName))
 				return oc;
 		}
 		return null;

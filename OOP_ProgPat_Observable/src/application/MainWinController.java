@@ -79,7 +79,7 @@ public class MainWinController implements Initializable {
     
     @FXML
     void addNewCompany(ActionEvent event) {
-    	if(txtNewAndManComp.getText() == "")
+    	if(txtNewAndManComp.getText().isEmpty())
     		return;
     	addNewCompany();
     	basicStateOrCompanyListChanged_loadInCompaniesList_ResetTextFields();
@@ -117,7 +117,7 @@ public class MainWinController implements Initializable {
 
     @FXML
     void addNewPartner(ActionEvent event) {
-    	if(txtNewAndManPart.getText() == "")
+    	if(txtNewAndManPart.getText().isEmpty())
     		return;
     	partnerManage_addNew();
     	aListChanged_setPartnersAndMessages();
@@ -146,7 +146,7 @@ public class MainWinController implements Initializable {
 
     @FXML
     void sendCollectiveMessage(ActionEvent event) {
-    	if(txtNewMessage.getText() == "")
+    	if(txtNewMessage.getText().isEmpty())
     		return;
     	if(listCompanies.getSelectionModel().isEmpty())
     		return;
@@ -156,7 +156,7 @@ public class MainWinController implements Initializable {
 
     @FXML
     void sendPrivateMessage(ActionEvent event) {
-    	if(txtNewMessage.getText() == "")
+    	if(txtNewMessage.getText().isEmpty())
     		return;
     	if(listPartners.getSelectionModel().isEmpty())
     		return;

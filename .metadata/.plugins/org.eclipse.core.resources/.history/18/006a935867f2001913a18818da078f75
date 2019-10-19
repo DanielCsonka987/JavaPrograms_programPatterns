@@ -1,0 +1,6 @@
+package application;
+
+public interface IObservable {
+
+	void addNewPartner(String partnerName);
+}

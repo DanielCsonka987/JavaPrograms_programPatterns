@@ -17,3 +17,7 @@
 1571424605502	Rename method 'basicStateOrCompanyChanged_loadInCompaniesList_ResetTextFields'
 1571424731866	Rename method 'removeThisompany'
 1571426237787	Rename field 'companyName'
+1571486015817	Rename type 'IObserved'
+1571487180309	Rename method 'deliveringSuccess'
+1571487558599	Rename method 'deliveringSuccessNotify'
+1571487570142	Rename method 'deliveringSuccessNotifyFeedback'

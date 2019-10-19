@@ -1,14 +1,20 @@
 package application;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-public class MainWindowController {
+public class MainWindowController implements Initializable{
 	
     @FXML
     private TextArea txtAreaLongMessage;
@@ -37,19 +43,71 @@ public class MainWindowController {
     @FXML
     private ListView<String> listResult;
 
+    private ServiceOfAdaptorMessenger service;
+    private Integer maxLength = 25;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		service = new ServiceOfAdaptorMessenger();
+		txtFieldShortMessage.textProperty().addListener(new ChangeListener<String>() {
+	        @Override
+	        public void changed(final ObservableValue<? extends String> ov, final String oldValue, final String newValue) {
+	            if (txtFieldShortMessage.getText().length() > maxLength) {
+	                String s = txtFieldShortMessage.getText().substring(0, maxLength);
+	                txtFieldShortMessage.setText(s);
+	            }
+	        }
+	    });
+	}
+    
     @FXML
     void calculateAndSendMessage(ActionEvent event) {
-
+    	if(cmbbxProcess.getSelectionModel().isEmpty())
+    		return;
+    	if(txtFieldNum1.getText().isEmpty() || txtFieldNum2.getText().isEmpty())
+    		return;
+    	doCalculateAndSendWithAdaptor();
+    	loadInMessageListAndResetFields();
     }
 
-    @FXML
+    private void doCalculateAndSendWithAdaptor() {
+    	String operationMessage = txtFieldNum1.getText() + cmbbxProcess.getSelectionModel().getSelectedItem() + 
+    			txtFieldNum2.getText();
+		service.sendCalculateableText(operationMessage);
+	}
+
+	@FXML
     void sendLongMessage(ActionEvent event) {
-
+		if(txtAreaLongMessage.getText().isEmpty())
+			return;
+		doSendingLongTextWithAdaptor();
+		loadInMessageListAndResetFields();
     }
 
-    @FXML
+    private void doSendingLongTextWithAdaptor() {
+		service.sendLongText(txtAreaLongMessage.getText());
+	}
+
+	@FXML
     void sendShortMessage(ActionEvent event) {
-
+		if(txtFieldShortMessage.getText().isEmpty())
+			return;
+		doSendingShortTextWithAdaptor();
+		loadInMessageListAndResetFields();
     }
+
+	private void doSendingShortTextWithAdaptor() {
+		service.sendShortText(txtFieldShortMessage.getText());
+	}
+	
+	private void loadInMessageListAndResetFields(){
+		listResult.setItems(service.getBackTheMessageResult());
+		txtAreaLongMessage.setText("");
+		txtFieldShortMessage.setText("");
+		txtFieldNum1.setText("");
+		txtFieldNum2.setText("");
+		cmbbxProcess.getSelectionModel().clearSelection();
+	}
+
 	
 }

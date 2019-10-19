@@ -1,0 +1,5 @@
+package applicationExtension;
+
+public interface IAdaptorOutput {
+	void sendTheMessageToAddresse(String finalMessage);
+}

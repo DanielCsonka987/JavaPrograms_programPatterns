@@ -1,0 +1,36 @@
+package application;
+
+public class ServiceOfAdaptorMessenger {
+	private IMessaging sending;
+	
+	public void sendLongText(String longMessage){
+		String finalMessage = "";
+		
+		sending = new AdaptorInputLongText();
+		sending.sendTheMessage(finalMessage);
+	}
+	
+	public void sendShortText(String shortMessage){
+		String finalMessage = "";
+		
+		sending = new AdaptorInputShortText();
+		sending.sendTheMessage(finalMessage);
+	}
+	
+	public void sendCalculateableText(String operationMessage){
+		String finalMessage = "";
+
+		if(operationMessage.contains("+"))
+		
+		sending = new AdaptorInputCalculateingText();
+		sending.sendTheMessage(finalMessage);
+	}
+	
+	private Integer doTheOperation(String[] parts,  ){
+		
+	}
+	
+	private enum Operation {
+		ADDING, SUBTARCTING, MULTIPLYING, DIVIDING
+	}
+}

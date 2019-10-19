@@ -1,0 +1,16 @@
+package applicationExtension;
+
+import javafx.collections.ObservableList;
+
+public class SingleAdaptorOutput implements IAdaptorOutput{
+	private ObservableList listOfMessages;
+	
+	
+	
+	
+	
+	public ObservableList<String> getTheMessages(){
+		
+	}
+	
+}

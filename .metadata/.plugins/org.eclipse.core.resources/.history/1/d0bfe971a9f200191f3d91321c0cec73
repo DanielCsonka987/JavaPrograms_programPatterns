@@ -1,0 +1,23 @@
+package applicationExtension;
+
+import javafx.collections.ObservableList;
+
+public class static SingleAdaptorOutput implements IAdaptorOutput{
+	private ObservableList<String> listOfMessages;
+	
+	@Override
+	public void sendTheMessageToAddresse(String finalMessage) {
+		
+		
+	}
+	
+	
+	public ObservableList<String> getTheMessages(){
+		return listOfMessages;
+	}
+
+
+
+
+	
+}

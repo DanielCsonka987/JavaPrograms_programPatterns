@@ -1,0 +1,11 @@
+package application;
+
+public class AdaptorInputShortText implements IMesseging {
+
+	@Override
+	public void sendTheMessage(String message) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,11 @@
+package application;
+
+public class AdaptorInputCalculateingText implements IMesseging {
+
+	@Override
+	public void sendTheMessage(String message) {
+		
+		
+	}
+
+}

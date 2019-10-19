@@ -1,0 +1,51 @@
+package application;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+
+public class MainWindowController {
+	
+    @FXML
+    private TextArea txtAreaLongMessage;
+
+    @FXML
+    private TextField txtFieldShortMessage;
+
+    @FXML
+    private Button btnLongMessage;
+
+    @FXML
+    private Button btnShortMessage;
+
+    @FXML
+    private Button btnCalculateMessage;
+
+    @FXML
+    private TextField txtFieldNum1;
+
+    @FXML
+    private TextField txtFieldNum2;
+
+    @FXML
+    private ListView<String> listResult;
+
+    @FXML
+    void calculateAndSendMessage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void sendLongMessage(ActionEvent event) {
+
+    }
+
+    @FXML
+    void sendShortMessage(ActionEvent event) {
+
+    }
+	
+}

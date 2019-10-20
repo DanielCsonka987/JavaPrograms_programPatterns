@@ -1,0 +1,9 @@
+package application;
+
+public class VolumeComic implements IVolume{
+	private Integer id;
+	private String title;
+	private Integer date;
+	private String universe;
+	
+}

@@ -1,0 +1,15 @@
+package application;
+
+public class BookShopFactory {
+
+	private Integer id = 0;
+	
+	public IVolume setTheNewVolume(String[] datas, VolumeChategories typeVol){
+		if(typeVol.BOOK){
+			return new VolumeBook(id, );
+		}
+		
+	}
+	
+	public enum VolumeChategories{ BOOK, COMIC }
+}

@@ -1,0 +1,13 @@
+package application;
+
+public class VolumeBook implements IVolume{
+	private Integer id;
+	private String title;
+	private Integer date;
+	
+	@Override
+	public String toString() {
+		return "VolumeBook [id=" + id + ", name=" + title + ", date=" + date + "]";
+	}
+	
+}

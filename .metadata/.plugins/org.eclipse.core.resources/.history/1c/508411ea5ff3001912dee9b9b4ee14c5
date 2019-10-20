@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="330.0" prefWidth="577.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
+   <top>
+      <AnchorPane prefHeight="74.0" prefWidth="400.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="75.0" layoutY="14.0" text="Inventory program based on OOP Factory Pattern">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="33.0" layoutY="52.0" text="Details of recordDetails of record" />
+            <Label layoutX="251.0" layoutY="52.0" text="Recordlist" />
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane prefHeight="226.0" prefWidth="250.0" BorderPane.alignment="CENTER">
+         <children>
+            <ComboBox fx:id="cmbbxChategory" layoutX="27.0" layoutY="32.0" onAction="#chategorySelectionChanged" prefWidth="150.0">
+            	<items>
+            		<FXCollections fx:factory="observableArrayList">
+            			<String fx:value="Book" />
+            			<String fx:value="Comic" />
+            		</FXCollections>
+            	</items>
+            </ComboBox>
+            <TextField fx:id="txtFieldTitle" layoutX="28.0" layoutY="87.0" />
+            <TextField fx:id="txtFieldYear" layoutX="28.0" layoutY="143.0" />
+            <TextField fx:id="txtFieldComicUniv" layoutX="28.0" layoutY="199.0" visible="false" />
+            <Label fx:id="lblVolumeTitle" layoutX="28.0" layoutY="182.0" text="Comic universe" visible="false" />
+            <Label layoutX="27.0" layoutY="128.0" text="Made at" />
+            <Label layoutX="27.0" layoutY="70.0" text="Title" />
+            <Label layoutX="27.0" layoutY="14.0" text="Chategory" />
+            <Button fx:id="btnAddNew" layoutX="184.0" layoutY="32.0" mnemonicParsing="false" onAction="#addingNewRecord" text="Adding" />
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <ListView fx:id="listViewOfRecords" prefHeight="256.0" prefWidth="326.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
+
 
 <BorderPane prefHeight="330.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="application.MainWindowController">
    <top>
@@ -30,10 +29,9 @@
          <children>
             <ComboBox fx:id="cmbbxChategory" layoutX="27.0" layoutY="32.0" prefWidth="150.0">
             	<items>
-            		<FXCollections fx:factory="observableArrayList">
-            			<String fx:value="Book" />
-            			<String fx:value="Comic" />
-            		</FXCollections>
+            		<FXCollection fx:factory="observableArrayList">
+            		
+            		</FXCollection>
             	</items>
             </ComboBox>
             <TextField fx:id="txtFieldAuthor" layoutX="28.0" layoutY="87.0" />

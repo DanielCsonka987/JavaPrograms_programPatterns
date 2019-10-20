@@ -31,14 +31,17 @@ public class MainWindowController implements Initializable {
     @FXML
     private ListView<String> listVolumes;
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
-	}
+    
     
     @FXML
     void addingNewRecord(ActionEvent event) {
 
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

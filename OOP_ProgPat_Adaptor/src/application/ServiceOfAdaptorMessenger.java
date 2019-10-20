@@ -16,7 +16,12 @@ public class ServiceOfAdaptorMessenger {
 			Integer counterEnd = 0;
 			String finalMessage = "";
 			while (counterEnd <= longMessage.length()){
-				finalMessage += longMessage.substring(counterEnd, counterEnd + 25);
+				if(counterEnd + 25 > longMessage.length())
+					finalMessage += longMessage.substring(counterEnd, longMessage.length());
+				else{
+					finalMessage += longMessage.substring(counterEnd, counterEnd + 25);
+					finalMessage += "\n";
+				}
 				counterEnd = counterEnd + 25;
 			}
 			return finalMessage;
@@ -30,42 +35,29 @@ public class ServiceOfAdaptorMessenger {
 		sending.sendTheMessage(shortMessage);
 	}
 	
-	public void sendCalculateableText(String operationMessage){
+	public void sendCalculateableText(Integer num1, Integer num2, Operation op){
 		Integer result = 0;
-		if(operationMessage.contains("+"))
-			result = doTheOperation(operationMessage.split("+"), Operation.ADDING);
-		if(operationMessage.contains("-"))
-			result = doTheOperation(operationMessage.split("-"), Operation.SUBTARCTING);
-		if(operationMessage.contains("*"))
-			result = doTheOperation(operationMessage.split("*"), Operation.MULTIPLYING);
-		if(operationMessage.contains("/"))
-			result = doTheOperation(operationMessage.split("/"), Operation.DIVIDING);
-		
+		try{
+			if(op == Operation.ADDING)
+				result = num1 + num2;
+			else if(op == Operation.SUBTARCTING)
+				result = num1 - num2;
+			else if(op == Operation.MULTIPLYING)
+				result = (Integer) (num1 * num2);
+			else {
+				if(num2 == 0)
+					result = 0;
+				result = (Integer)(num1 / num2);
+			}
+		}catch (Exception e) {
+			e.getStackTrace();
+		}
 		String finalMessage = result.toString();
 		sending = new AdaptorInputCalculateingText();
 		sending.sendTheMessage(finalMessage);
 	}
 	
-	private Integer doTheOperation(String[] parts, Operation op ){
-		try{
-			if(op == Operation.ADDING)
-				return Integer.parseInt(parts[0]) + Integer.parseInt(parts[1]);
-			else if(op == Operation.SUBTARCTING)
-				return Integer.parseInt(parts[0]) - Integer.parseInt(parts[1]);
-			else if(op == Operation.MULTIPLYING)
-				return (Integer) (Integer.parseInt(parts[0]) * Integer.parseInt(parts[1]));
-			else {
-				if(parts[1].equals("0"))
-					return 0;
-				return (Integer)(Integer.parseInt(parts[0]) / Integer.parseInt(parts[1]));
-			}
-		}catch (Exception e) {
-			e.getStackTrace();
-		}
-		return 0;
-	}
-	
-	private enum Operation {
+	public enum Operation {
 		ADDING, SUBTARCTING, MULTIPLYING, DIVIDING
 	}
 	

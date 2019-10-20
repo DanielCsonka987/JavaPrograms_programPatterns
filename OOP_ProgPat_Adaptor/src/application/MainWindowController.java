@@ -2,7 +2,10 @@ package application;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import application.ServiceOfAdaptorMessenger.Operation;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -45,7 +48,9 @@ public class MainWindowController implements Initializable{
 
     private ServiceOfAdaptorMessenger service;
     private Integer maxLength = 25;
-
+	private Pattern p = Pattern.compile("[a-zA-Z]");
+	private Matcher m;
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		service = new ServiceOfAdaptorMessenger();
@@ -59,21 +64,46 @@ public class MainWindowController implements Initializable{
 	        }
 	    });
 	}
-    
+	
     @FXML
     void calculateAndSendMessage(ActionEvent event) {
     	if(cmbbxProcess.getSelectionModel().isEmpty())
     		return;
     	if(txtFieldNum1.getText().isEmpty() || txtFieldNum2.getText().isEmpty())
     		return;
-    	doCalculateAndSendWithAdaptor();
+    	m = p.matcher(txtFieldNum1.getText());
+    	if(m.find())
+    		return;
+    	m = p.matcher(txtFieldNum2.getText());
+    	if(m.find())
+    		return;
+    	doCalculateAndSendWithAdaptor(
+    			reviseTheDataToCalulateAndSend(1), reviseTheDataToCalulateAndSend(2)
+    			);
     	loadInMessageListAndResetFields();
     }
 
-    private void doCalculateAndSendWithAdaptor() {
-    	String operationMessage = txtFieldNum1.getText() + cmbbxProcess.getSelectionModel().getSelectedItem() + 
-    			txtFieldNum2.getText();
-		service.sendCalculateableText(operationMessage);
+    private Integer reviseTheDataToCalulateAndSend(Integer elementIndex) {
+		try{
+			if(elementIndex == 1)
+				return Integer.parseInt(txtFieldNum1.getText());
+			else
+				return Integer.parseInt(txtFieldNum2.getText());
+		}catch (Exception e) {
+			e.getStackTrace();
+		}
+		return 0;
+	}
+
+	private void doCalculateAndSendWithAdaptor(Integer num1, Integer num2) {
+		if(cmbbxProcess.getValue().contains("+"))
+			service.sendCalculateableText(num1, num2, Operation.ADDING);
+		if(cmbbxProcess.getValue().contains("-"))
+			service.sendCalculateableText(num1, num2, Operation.SUBTARCTING);
+		if(cmbbxProcess.getValue().contains("*"))
+			service.sendCalculateableText(num1, num2, Operation.MULTIPLYING);
+		if(cmbbxProcess.getValue().contains("/"))
+			service.sendCalculateableText(num1, num2, Operation.DIVIDING);
 	}
 
 	@FXML

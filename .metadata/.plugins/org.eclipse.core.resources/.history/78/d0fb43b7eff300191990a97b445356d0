@@ -1,0 +1,21 @@
+package application;
+
+public class Employee {
+	private Integer id;
+	private String name;
+	private String gender;
+	private String birthYear;
+	private String position;
+	private String area;
+	public Employee(Integer id, String name, String gender, String birthYear, String position, String area) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.gender = gender;
+		this.birthYear = birthYear;
+		this.position = position;
+		this.area = area;
+	}
+	
+	
+}

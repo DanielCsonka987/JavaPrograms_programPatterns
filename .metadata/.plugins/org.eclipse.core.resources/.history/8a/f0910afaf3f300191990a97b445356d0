@@ -1,0 +1,43 @@
+package application;
+
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
+
+public class Employee {
+	private SimpleIntegerProperty id;
+	private SimpleStringProperty name;
+	private SimpleStringProperty gender;
+	private SimpleIntegerProperty birthYear;
+	private SimpleStringProperty position;
+	private SimpleStringProperty area;
+	public Employee(Integer id, String name, String gender, Integer birthYear, String position, String area) {
+		super();
+		this.id.set(id);
+		this.name.set(name);
+		this.gender.set(gender);
+		this.birthYear.set(birthYear);
+		this.position.set(position);
+		this.area.set(area);
+	}
+	public IntegerProperty getId() {
+		return id;
+	}
+	public SimpleStringProperty getName() {
+		return name;
+	}
+	public SimpleStringProperty getGender() {
+		return gender;
+	}
+	public IntegerProperty getBirthYear() {
+		return birthYear;
+	}
+	public SimpleStringProperty getPosition() {
+		return position;
+	}
+	public SimpleStringProperty getArea() {
+		return area;
+	}
+	
+	
+}

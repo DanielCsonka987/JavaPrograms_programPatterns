@@ -1,0 +1,33 @@
+package application;
+
+public class EmployeeBuilder {
+	private Integer id;
+	private String name;
+	private String gender;
+	private String birthYear;
+	private String position;
+	private String area;
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Employee setName(String name) {
+		this.name = name;
+		return this;
+	}
+	public Employee setGender(String gender) {
+		this.gender = gender;
+	}
+	public Employee setBirthYear(String birthYear) {
+		this.birthYear = birthYear;
+	}
+	public Employee setPosition(String position) {
+		this.position = position;
+	}
+	public Employee setArea(String area) {
+		this.area = area;
+	}
+	
+	public Employee finishBuild(){
+		return new Employee(id, name, gender, birthYear, position, area);
+	}
+}

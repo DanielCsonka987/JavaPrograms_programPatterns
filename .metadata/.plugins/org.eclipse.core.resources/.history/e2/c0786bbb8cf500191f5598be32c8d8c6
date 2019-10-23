@@ -14,7 +14,7 @@ public class MainWindowController {
     private AnchorPane paneSize;
 
     @FXML
-    private ToggleGroup sizeDefinition;
+    private ToggleGroup size;
 
     @FXML
     private Button btnSize;

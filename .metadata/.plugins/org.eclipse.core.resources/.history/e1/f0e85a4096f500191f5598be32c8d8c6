@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -13,10 +11,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.collections.*?>
+<?import java.lang.String?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="application.MainWindowController">
    <left>
-      <AnchorPane prefHeight="250.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="251.0" prefWidth="300.0" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane fx:id="paneSize" layoutY="64.0" prefHeight="38.0" prefWidth="300.0">
                <children>
@@ -25,10 +25,7 @@
                         <ToggleGroup fx:id="sizeDefinition" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton layoutX="172.0" layoutY="10.0" mnemonicParsing="false" text="L">
-                     <toggleGroup>
-                        <ToggleGroup fx:id="size" />
-                     </toggleGroup></RadioButton>
+                  <RadioButton layoutX="172.0" layoutY="10.0" mnemonicParsing="false" text="L" toggleGroup="$size" />
                   <RadioButton layoutX="207.0" layoutY="10.0" mnemonicParsing="false" text="XL" toggleGroup="$size" />
                   <RadioButton layoutX="95.0" layoutY="10.0" mnemonicParsing="false" text="S" toggleGroup="$size" />
                   <Label layoutX="14.0" layoutY="10.0" text="Choose size" />
@@ -38,19 +35,7 @@
             <AnchorPane fx:id="panelClothes" prefHeight="51.0" prefWidth="300.0">
                <children>
                   <Button fx:id="btnClothes" layoutX="252.0" layoutY="25.0" mnemonicParsing="false" onAction="#saveChosenClothes" text="Save" />
-                  <ComboBox fx:id="cmbBxClothes" layoutX="12.0" layoutY="24.0" prefWidth="150.0">
-                    <items>
-                  		<FXCollections fx:factory="observableArrayList">
-                  			<String fx:value="Hat" />
-                  			<String fx:value="Leggings" />
-                  			<String fx:value="Pulover" />
-                  			<String fx:value="Shorts" />
-                  			<String fx:value="Snickers" />
-							<String fx:value="Socks" />
-							<String fx:value="Track-suit" />
-                  		</FXCollections>
-                  	</items>
-                  </ComboBox>
+                  <ComboBox fx:id="cmbBxClothes" layoutX="12.0" layoutY="24.0" prefWidth="150.0" />
                   <Label layoutX="14.0" layoutY="4.0" text="Choose a clothes" />
                </children>
             </AnchorPane>
@@ -60,10 +45,10 @@
                   <ComboBox fx:id="cmbBxColor" layoutX="14.0" layoutY="31.0" prefWidth="150.0">
                   	<items>
                   		<FXCollections fx:factory="observableArrayList">
-                  			<String fx:value="Black" />
-                  			<String fx:value="Blue" />
-                  			<String fx:value="Gray" />
-                  			<String fx:value="Red" />
+                  			<String value="Black"/>
+                  			<String value="Blue"/>
+                  			<String value="Gray"/>
+                  			<String value="Red"/>
                   		</FXCollections>
                   	</items>
                   </ComboBox>
@@ -73,7 +58,7 @@
             </AnchorPane>
             <AnchorPane fx:id="panelReview" layoutY="167.0" prefHeight="100.0" prefWidth="300.0">
                <children>
-                  <Button fx:id="btnRemoving" layoutX="14.0" layoutY="59.0" mnemonicParsing="false" onAction="#removeChosenClothes" prefHeight="25.0" prefWidth="70.0" text="Cancel" />
+                  <Button fx:id="btnRemoving" layoutX="14.0" layoutY="59.0" mnemonicParsing="false" onAction="#removeChosenClothes" text="Cancel" />
                   <Button fx:id="btnOrdering" layoutX="219.0" layoutY="59.0" mnemonicParsing="false" onAction="#saveOrderedClothes" prefHeight="25.0" prefWidth="73.0" text="Ordering" />
                   <Label layoutX="14.0" layoutY="7.0" text="Summarision" />
                   <TextField fx:id="txtFieldSum" layoutX="14.0" layoutY="27.0" prefHeight="25.0" prefWidth="278.0" />

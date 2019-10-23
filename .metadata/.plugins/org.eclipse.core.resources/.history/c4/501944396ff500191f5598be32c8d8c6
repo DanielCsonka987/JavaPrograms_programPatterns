@@ -1,0 +1,6 @@
+package application;
+
+public class DataBaseLikeClass {
+
+	private static ObservableList listOfMessages;
+}

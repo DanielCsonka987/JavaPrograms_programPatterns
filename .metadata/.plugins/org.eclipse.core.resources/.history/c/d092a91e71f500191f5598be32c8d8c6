@@ -23,18 +23,13 @@ public class MainWindowController implements Initializable {
 
     @FXML
     void sendingTheMessage(ActionEvent event) {
-    	if(! txtAreaMessage.getText().isEmpty()) {
-    		DataBaseInterfaceLikeClass interf = DataBaseInterfaceLikeClass.getSingletonInterface();
-    		interf.addNewMessageToDB(txtAreaMessage.getText());
-    		lstViewMessages.itemsProperty().set(interf.loadInMessagesFromDB());
-    		txtAreaMessage.setText("");
-    	}
+
     }
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		DataBaseInterfaceLikeClass interf = DataBaseInterfaceLikeClass.getSingletonInterface();
-		lstViewMessages.itemsProperty().set(interf.loadInMessagesFromDB());
+		DataBaseInterfaceLikeClass int = DataBaseInterfaceLikeClass.getSingletonInterface();
+		lstViewMessages.itemsProperty().set();
 		
 	}
 }

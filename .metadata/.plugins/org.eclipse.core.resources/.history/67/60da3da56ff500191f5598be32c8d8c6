@@ -1,0 +1,13 @@
+package application;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+public class DataBaseLikeClass {
+
+	private static ObservableList<String> listOfMessages = FXCollections.observableArrayList();
+	
+	public static void reveiveMessage(String message){
+		listOfMessages.add(message);
+	}
+}

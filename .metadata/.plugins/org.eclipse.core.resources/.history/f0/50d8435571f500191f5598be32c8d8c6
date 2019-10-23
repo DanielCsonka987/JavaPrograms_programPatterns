@@ -23,12 +23,9 @@ public class MainWindowController implements Initializable {
 
     @FXML
     void sendingTheMessage(ActionEvent event) {
-    	if(! txtAreaMessage.getText().isEmpty()) {
-    		DataBaseInterfaceLikeClass interf = DataBaseInterfaceLikeClass.getSingletonInterface();
-    		interf.addNewMessageToDB(txtAreaMessage.getText());
-    		lstViewMessages.itemsProperty().set(interf.loadInMessagesFromDB());
-    		txtAreaMessage.setText("");
-    	}
+    	DataBaseInterfaceLikeClass interf = DataBaseInterfaceLikeClass.getSingletonInterface();
+    	interf.addNewMessageToDB(txtAreaMessage.getText());
+    	lstViewMessages.itemsProperty().set(interf.loadInMessagesFromDB());
     }
 
 	@Override

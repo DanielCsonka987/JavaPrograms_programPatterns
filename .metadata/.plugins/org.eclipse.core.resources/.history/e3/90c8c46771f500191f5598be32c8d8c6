@@ -27,7 +27,6 @@ public class MainWindowController implements Initializable {
     		DataBaseInterfaceLikeClass interf = DataBaseInterfaceLikeClass.getSingletonInterface();
     		interf.addNewMessageToDB(txtAreaMessage.getText());
     		lstViewMessages.itemsProperty().set(interf.loadInMessagesFromDB());
-    		txtAreaMessage.setText("");
     	}
     }
 

@@ -1,0 +1,11 @@
+package application;
+
+public class DataBaseInterfaceLikeClass {
+
+	private static DataBaseInterfaceLikeClass singletonInstance;
+	private static DataBaseLikeClass dbObject;
+	
+	private DataBaseInterfaceLikeClass(){
+		
+	}
+}

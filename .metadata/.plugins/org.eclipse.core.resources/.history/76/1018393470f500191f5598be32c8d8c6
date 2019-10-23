@@ -1,0 +1,17 @@
+package application;
+
+public class DataBaseInterfaceLikeClass {
+
+	private static DataBaseInterfaceLikeClass singletonInstance;
+	private static DataBaseLikeClass dbObject = new DataBaseLikeClass();
+	
+	private DataBaseInterfaceLikeClass(){
+		
+	}
+	
+	public void saveAMessageToDB(String message){
+		if(singletonInstance == null){
+			singletonInstance = new DataBaseInterfaceLikeClass();
+		}
+	}
+}

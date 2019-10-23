@@ -1,8 +1,0 @@
-package application;
-
-import javafx.collections.ObservableList;
-
-public class DataBaseLikeClass {
-
-	private static ObservableList<String> listOfMessages;
-}

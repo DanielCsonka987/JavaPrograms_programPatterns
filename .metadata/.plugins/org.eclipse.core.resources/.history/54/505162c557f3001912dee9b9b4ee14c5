@@ -1,7 +1,0 @@
-package application;
-
-public class VolumeBook implements IVolume{
-	private Integer id;
-	private String name;
-	private Integer date;
-}

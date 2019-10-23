@@ -1,5 +1,0 @@
-package application;
-
-public interface IMesseging {
-	void sendTheMessage(String message);
-}

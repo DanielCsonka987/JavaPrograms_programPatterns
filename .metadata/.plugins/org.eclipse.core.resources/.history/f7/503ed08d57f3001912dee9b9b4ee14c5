@@ -1,7 +1,0 @@
-package application;
-
-interface class IVolume {
-	public String toString() {
-		return null;
-	}
-}

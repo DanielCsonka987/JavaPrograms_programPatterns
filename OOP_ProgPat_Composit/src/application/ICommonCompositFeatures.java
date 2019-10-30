@@ -11,5 +11,5 @@ public interface ICommonCompositFeatures {
 	ObservableList<String> getTitleTextOfNodes_ToCombobox();
 	
 	TreeItem getTitleText_ToView();
-	
+
 }

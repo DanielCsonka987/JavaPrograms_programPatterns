@@ -58,6 +58,7 @@ public class CompositNode implements ICommonCompositFeatures {
 
 	@Override
 	public TreeItem getTitleText_ToView() {
+		
 		TreeItem nodeContent = new TreeItem<String>(titleOfNode);
 		if(listOfElements.size() > 0){
 			for(ICommonCompositFeatures e : listOfElements){
@@ -68,63 +69,64 @@ public class CompositNode implements ICommonCompositFeatures {
 	}
 
 	
-	public void addNewItemToList(ICommonCompositFeatures eNew, String whereToDo){
+	public Boolean addNewItemToList(ICommonCompositFeatures eNew, String whereToDo){
+		
 		if(whereToDo.equals(titleOfNode)){
-				listOfElements.add(eNew);
+			return listOfElements.add(eNew);
 		}
 		else{
-			for(ICommonCompositFeatures element : listOfElements){
-				if(element instanceof CompositNode){
-					CompositNode temp = (CompositNode)element;
-					if(temp.seekedNodeIsInThisNode(whereToDo) || temp.getName().equals(whereToDo)){
-						temp.addNewItemToList(eNew, whereToDo);
-
-					}
-					else
-						continue;
-				}
-			}
+			return addTheNewElementToSublevels(eNew, whereToDo);
 		}
 	}
 	
-	public void removeItemFromList(String eExist, String whereToDo){
-		if(whereToDo.equals(titleOfNode)){
-			ICommonCompositFeatures temp = null;
-			for (ICommonCompositFeatures e : listOfElements) {
-				if (e.getName().equals(eExist)) {
-					temp = e;
-					break;
-				}
-			}
-			listOfElements.remove(temp);
-		}
-		else{
-			for(ICommonCompositFeatures element : listOfElements){
-				if(element instanceof CompositNode){
-					CompositNode temp = (CompositNode)element;
-					if(temp.seekedNodeIsInThisNode(whereToDo) || temp.getName().equals(whereToDo)){
-						temp.removeItemFromList(eExist, whereToDo);
-					}
-					else
-						continue;
-				}
-			}
-		}
-	}
-	
-	public Boolean seekedNodeIsInThisNode(String whereTo){
+	private Boolean addTheNewElementToSublevels(ICommonCompositFeatures eNew, String whereToDo){
+		
 		for(ICommonCompositFeatures element : listOfElements){
 			if(element instanceof CompositNode){
 				CompositNode temp = (CompositNode)element;
-				if(temp.getName().equals(whereTo))
+				if(temp.addNewItemToList(eNew, whereToDo))
 					return true;
-				if(temp.seekedNodeIsInThisNode(whereTo))
-					return true;
+				}
 				else
+					continue;
+		}
+		return false;
+	}
+	
+	
+	public Boolean removeItemFromList(String eNameToRemove, String whereToDo){
+		
+		if(whereToDo.equals(titleOfNode)){
+			return doTheRemovingHere(eNameToRemove);
+		}
+		else{
+			return doTheRemovingAboveLevels(eNameToRemove, whereToDo);
+		}
+	}
+	
+	private Boolean doTheRemovingHere(String eNameToRemove){
+		
+		ICommonCompositFeatures temp = null;
+		for (ICommonCompositFeatures e : listOfElements) {
+			if (e.getName().equals(eNameToRemove)) {
+				temp = e;
+				break;
+			}
+		}
+		return listOfElements.remove(temp);
+	}
+	
+	private Boolean doTheRemovingAboveLevels(String eNameToRemove, String whereToDo){
+		
+		for(ICommonCompositFeatures element : listOfElements){
+			if(element instanceof CompositNode){
+				CompositNode temp = (CompositNode)element;
+				if(temp.removeItemFromList(eNameToRemove, whereToDo)){
+					return true;
+				} else
 					continue;
 			}
 		}
 		return false;
 	}
-
 }

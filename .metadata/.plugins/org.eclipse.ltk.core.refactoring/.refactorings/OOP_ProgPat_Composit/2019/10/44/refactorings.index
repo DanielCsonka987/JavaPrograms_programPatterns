@@ -9,3 +9,8 @@
 1572445585660	Rename method 'reviseFieldsAreFilled'
 1572447648849	Rename local variable 'targerNodeName'
 1572447695170	Rename local variable 'targerNodeName'
+1572451072613	Rename method 'doTheRemovingThisList'
+1572451146099	Rename local variable 'eExist'
+1572451155159	Rename local variable 'eToRemove'
+1572451204010	Rename local variable 'eExist'
+1572451217599	Rename local variable 'eNameToDelete'

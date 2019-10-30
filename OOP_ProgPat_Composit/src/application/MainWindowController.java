@@ -19,7 +19,7 @@ public class MainWindowController implements Initializable {
 
 
     @FXML
-    private TreeView<?> trvwElements;
+    private TreeView<String> trvwElements;
 
     @FXML
     private ComboBox<String> cmbBxListOfNodes;
@@ -80,6 +80,7 @@ public class MainWindowController implements Initializable {
     	
     	rootOfTreeElement.addNewItemToList(element, targerNode.getValue().toString());
     	reloadTreeViewContent();
+    	clearFieldAfterProcess();
     }
 
     @FXML
@@ -93,6 +94,7 @@ public class MainWindowController implements Initializable {
     	rootOfTreeElement.removeItemFromList(targetToDeleteNode.getValue().toString(),
     			parentTargerNodeName.getValue().toString());
     	reloadTreeViewContent();
+    	clearFieldAfterProcess();
     }
 
     private Boolean reviseFieldsAreFilled_BeforeAdd(){
@@ -109,6 +111,11 @@ public class MainWindowController implements Initializable {
     	if(trvwElements.getSelectionModel().getSelectedItem().getValue().toString().equals("Node: Root"))
     		return true;
     	return false;
+    }
+    
+    private void clearFieldAfterProcess(){
+    	txtFieldTitle.setText("");
+    	chckBxNodeIndic.setSelected(false);
     }
     
 }

@@ -14,10 +14,14 @@ public class CompositNode implements ICommonCompositFeatures {
 	
 	public CompositNode(String titleOfNode) {
 		super();
-		this.titleOfNode = titleOfNode;
+		this.titleOfNode = "Node: " + titleOfNode;
 		listOfElements = new HashSet();
 	}
 
+	@Override
+	public String getName(){
+		return titleOfNode;
+	}
 
 	@Override
 	public ObservableList<String> getTitleTextOfNodes_ToCombobox() {
@@ -64,32 +68,42 @@ public class CompositNode implements ICommonCompositFeatures {
 	}
 
 	
-	public void addNewItemToList(ICommonCompositFeatures eNew, String whereTo){
-		doTheManageHere(eNew, whereTo, true);
-	}
-	
-	public void removeItemFromList(ICommonCompositFeatures eExist, String whereTo){
-		doTheManageHere(eExist, whereTo, true);
-	}
-	
-	private void doTheManageHere(ICommonCompositFeatures eManaged,
-			String whereToDo, Boolean isAdding){
-		
-		if(whereToDo == titleOfNode){
-			if(isAdding)
-				listOfElements.add(eManaged);
-			else
-				listOfElements.remove(eManaged);
+	public void addNewItemToList(ICommonCompositFeatures eNew, String whereToDo){
+		if(whereToDo.equals(titleOfNode)){
+				listOfElements.add(eNew);
 		}
 		else{
 			for(ICommonCompositFeatures element : listOfElements){
 				if(element instanceof CompositNode){
 					CompositNode temp = (CompositNode)element;
-					if(temp.seekedNodeIsInThisNode(whereToDo)){
-						if(isAdding)
-							temp.addNewItemToList(eManaged, whereToDo);
-						else
-							temp.removeItemFromList(eManaged, whereToDo);
+					if(temp.seekedNodeIsInThisNode(whereToDo) || temp.getName().equals(whereToDo)){
+						temp.addNewItemToList(eNew, whereToDo);
+
+					}
+					else
+						continue;
+				}
+			}
+		}
+	}
+	
+	public void removeItemFromList(String eExist, String whereToDo){
+		if(whereToDo.equals(titleOfNode)){
+			ICommonCompositFeatures temp = null;
+			for (ICommonCompositFeatures e : listOfElements) {
+				if (e.getName().equals(eExist)) {
+					temp = e;
+					break;
+				}
+			}
+			listOfElements.remove(temp);
+		}
+		else{
+			for(ICommonCompositFeatures element : listOfElements){
+				if(element instanceof CompositNode){
+					CompositNode temp = (CompositNode)element;
+					if(temp.seekedNodeIsInThisNode(whereToDo) || temp.getName().equals(whereToDo)){
+						temp.removeItemFromList(eExist, whereToDo);
 					}
 					else
 						continue;
@@ -102,6 +116,8 @@ public class CompositNode implements ICommonCompositFeatures {
 		for(ICommonCompositFeatures element : listOfElements){
 			if(element instanceof CompositNode){
 				CompositNode temp = (CompositNode)element;
+				if(temp.getName().equals(whereTo))
+					return true;
 				if(temp.seekedNodeIsInThisNode(whereTo))
 					return true;
 				else

@@ -11,7 +11,7 @@ public class CompositLeaf implements ICommonCompositFeatures{
 	
 	public CompositLeaf(String titleOfText) {
 		super();
-		this.titleOfText = titleOfText;
+		this.titleOfText = "Leaf: " + titleOfText;
 	}
 
 	@Override
@@ -24,6 +24,11 @@ public class CompositLeaf implements ICommonCompositFeatures{
 	public TreeItem getTitleText_ToView() {
 		TreeItem leaf = new TreeItem<String>(titleOfText);
 		return leaf;
+	}
+
+	@Override
+	public String getName() {
+		return titleOfText;
 	}
 
 }

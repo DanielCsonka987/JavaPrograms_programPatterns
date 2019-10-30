@@ -12,4 +12,5 @@ public interface ICommonCompositFeatures {
 	
 	TreeItem getTitleText_ToView();
 
+	String getName();
 }

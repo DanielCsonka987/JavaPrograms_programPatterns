@@ -6,3 +6,6 @@
 1572430533712	Rename local variable 'node'
 1572431707286	Rename method 'reloadTreeViewContatn'
 1572433431040	Rename local variable 'e'
+1572445585660	Rename method 'reviseFieldsAreFilled'
+1572447648849	Rename local variable 'targerNodeName'
+1572447695170	Rename local variable 'targerNodeName'

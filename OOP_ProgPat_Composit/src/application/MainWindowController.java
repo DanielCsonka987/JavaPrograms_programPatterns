@@ -36,12 +36,12 @@ public class MainWindowController implements Initializable {
     @FXML
     private Button btnRemoveElement;
 	
-    private List<ICommonCompositFeatures> listOfTreeElements;
+    private CompositNode rootOfTreeElement;
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		listOfTreeElements = new ArrayList();
+		rootOfTreeElement = new CompositNode("Root");
 		loadInTestDatasToList();
 		reloadTreeViewContent();
 	}
@@ -51,31 +51,64 @@ public class MainWindowController implements Initializable {
 		CompositLeaf l1 = new CompositLeaf("Leaf 1");
 		CompositLeaf l2 = new CompositLeaf("Leaf 2");
 		CompositNode n1 = new CompositNode("Node1");
-		n1.addNewItemToList(l1);
-		n1.addNewItemToList(l2);
-		listOfTreeElements.add(n1);
+		n1.addNewItemToList(l1, "Node: Node1");
+		n1.addNewItemToList(l2, "Node: Node1");
+		rootOfTreeElement.addNewItemToList(n1, "Node: Root");
 		
 	}
 
 	private void reloadTreeViewContent(){
 		
 		TreeItem rootElement = new TreeItem<String>("Root");
-		for (ICommonCompositFeatures e : listOfTreeElements){
-			rootElement.getChildren().add(e.getTitleText_ToView());
-		}
-		trvwElements.setRoot(rootElement);
+		trvwElements.setRoot(rootOfTreeElement.getTitleText_ToView());
 	}
 	
     @FXML
     void addNewElement(ActionEvent event) {
-
+    	
+    	if(reviseFieldsAreFilled_BeforeAdd())
+    		return;
+    	String elementName = txtFieldTitle.getText();
+    	TreeItem targerNode = trvwElements.getSelectionModel().getSelectedItem();
+    	
+    	ICommonCompositFeatures element = null;
+    	if(chckBxNodeIndic.isSelected()){
+    		element = new CompositNode(elementName);
+    	}else{
+    		element = new CompositLeaf(elementName);
+    	}
+    	
+    	rootOfTreeElement.addNewItemToList(element, targerNode.getValue().toString());
+    	reloadTreeViewContent();
     }
 
     @FXML
     void removeElement(ActionEvent event) {
-
+    	if(reviseFieldsAreFilled_BeforeRemove())
+    		return;
+    	
+    	TreeItem parentTargerNodeName = trvwElements.getSelectionModel().getSelectedItem().getParent();
+    	TreeItem targetToDeleteNode = trvwElements.getSelectionModel().getSelectedItem();
+    	
+    	rootOfTreeElement.removeItemFromList(targetToDeleteNode.getValue().toString(),
+    			parentTargerNodeName.getValue().toString());
+    	reloadTreeViewContent();
     }
 
-
+    private Boolean reviseFieldsAreFilled_BeforeAdd(){
+    	if(txtFieldTitle.getText().equals(""))
+    		return true;
+    	if(trvwElements.getSelectionModel().isEmpty())
+    		return true;
+    	return false;
+    }
 	
+    private Boolean reviseFieldsAreFilled_BeforeRemove(){
+    	if(trvwElements.getSelectionModel().isEmpty())
+    		return true;
+    	if(trvwElements.getSelectionModel().getSelectedItem().getValue().toString().equals("Node: Root"))
+    		return true;
+    	return false;
+    }
+    
 }

@@ -11,9 +11,10 @@
       <TextArea fx:id="txtAreaText" layoutX="24.0" layoutY="62.0" prefHeight="200.0" prefWidth="355.0" />
       <AnchorPane layoutX="24.0" layoutY="271.0" prefHeight="40.0" prefWidth="355.0">
          <children>
-            <Button fx:id="btnSave" layoutX="34.0" layoutY="6.0" mnemonicParsing="false" onAction="#saveText" text="Save text" />
-            <Button fx:id="btnUndo" layoutX="186.0" layoutY="6.0" mnemonicParsing="false" onAction="#undoText" text="Undo" />
-            <Button fx:id="btnRedo" layoutX="278.0" layoutY="6.0" mnemonicParsing="false" onAction="#redoText" text="Redo" />
+            <Button fx:id="btnSave" layoutX="6.0" layoutY="8.0" mnemonicParsing="false" onAction="#saveText" text="Save text" />
+            <Button fx:id="btnUndo" layoutX="240.0" layoutY="8.0" mnemonicParsing="false" onAction="#undoText" text="Undo" />
+            <Button fx:id="btnRedo" layoutX="294.0" layoutY="8.0" mnemonicParsing="false" onAction="#redoText" text="Redo" />
+            <Button layoutX="85.0" layoutY="8.0" mnemonicParsing="false" onAction="#removeText" text="Remove saved text" />
          </children>
       </AnchorPane>
       <Label layoutX="14.0" layoutY="25.0" text="Simple TextEditor based on Memento Design Pattern">

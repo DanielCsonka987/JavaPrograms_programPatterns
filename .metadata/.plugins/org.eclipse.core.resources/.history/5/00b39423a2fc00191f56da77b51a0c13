@@ -1,15 +1,11 @@
 package application;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
-public class MainWindowController implements Initializable {
+public class MainWindowController {
 
     @FXML
     private TextArea txtAreaText;
@@ -37,11 +33,5 @@ public class MainWindowController implements Initializable {
     void undoText(ActionEvent event) {
 
     }
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		txtAreaText.setWrapText(true);
-		
-	}
 
 }

@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="application.MainWindowController">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainWindowController">
    <top>
       <AnchorPane prefHeight="70.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -21,20 +20,20 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane prefHeight="199.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="200.0" prefWidth="350.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="btnPay" layoutX="31.0" layoutY="126.0" mnemonicParsing="false" onAction="#payTheFee" text="Pay the fee" />
-            <Button fx:id="btnEnter" layoutX="210.0" layoutY="126.0" mnemonicParsing="false" onAction="#enterTheGate" text="Enter" />
-            <TextField fx:id="txtBxFee" layoutX="29.0" layoutY="67.0" prefHeight="25.0" prefWidth="80.0" />
-            <Label layoutX="29.0" layoutY="28.0" text="Payed amount" />
-            <Label layoutX="186.0" layoutY="28.0" text="State of the gate:" />
-            <Label fx:id="lblResult" layoutX="191.0" layoutY="69.0">
+            <Button fx:id="btnPay" layoutX="37.0" layoutY="135.0" mnemonicParsing="false" onAction="#payTheFee" text="Pay the fee" />
+            <Button fx:id="btnEnter" layoutX="218.0" layoutY="135.0" mnemonicParsing="false" onAction="#enterTheGate" text="Enter" />
+            <TextField fx:id="txtBxFee" layoutX="38.0" layoutY="44.0" prefHeight="25.0" prefWidth="80.0" />
+            <Label layoutX="38.0" layoutY="14.0" text="Payed amount" />
+            <Label layoutX="195.0" layoutY="14.0" text="State of the gate:" />
+            <Label fx:id="lblResult" layoutX="196.0" layoutY="55.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
             <Label layoutX="31.0" layoutY="168.0" text="(100 or more is needed)" />
-            <Label fx:id="lblPaymentStatus" layoutX="31.0" layoutY="100.0" />
+            <Label fx:id="lblPaymentStatus" layoutX="39.0" layoutY="79.0" />
          </children>
       </AnchorPane>
    </center>

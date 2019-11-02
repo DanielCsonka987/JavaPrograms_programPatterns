@@ -1,0 +1,30 @@
+package application;
+
+public class MainWindowController {
+	
+	  @FXML
+	    private Button btnPay;
+
+	    @FXML
+	    private Button btnEnter;
+
+	    @FXML
+	    private TextField txtBxFee;
+
+	    @FXML
+	    private Label lblResult;
+
+	    @FXML
+	    private Label lblPaymentStatus;
+
+	    @FXML
+	    void enterTheGate(ActionEvent event) {
+
+	    }
+
+	    @FXML
+	    void payTheFee(ActionEvent event) {
+
+	    }
+
+}

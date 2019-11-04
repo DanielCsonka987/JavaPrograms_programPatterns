@@ -77,7 +77,7 @@
           <tags>persp.newWizSC:org.eclipse.xtend.ide.wizards.NewXtendInterfaceWizard</tags>
           <tags>persp.newWizSC:org.eclipse.xtend.ide.wizards.NewXtendEnumWizard</tags>
           <tags>persp.newWizSC:org.eclipse.xtend.ide.wizards.NewXtendAnnotationWizard</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_TKPQ8_2rEemLzMWh8NOp_g" selectedElement="_TKPQ9P2rEemLzMWh8NOp_g" horizontal="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_TKPQ8_2rEemLzMWh8NOp_g" selectedElement="_TKPQ__2rEemLzMWh8NOp_g" horizontal="true">
             <children xsi:type="basic:PartSashContainer" xmi:id="_TKPQ9P2rEemLzMWh8NOp_g" containerData="2250" selectedElement="_TKPQ9f2rEemLzMWh8NOp_g">
               <children xsi:type="basic:PartStack" xmi:id="_TKPQ9f2rEemLzMWh8NOp_g" elementId="left" containerData="6000" selectedElement="_TKPQ9v2rEemLzMWh8NOp_g">
                 <tags>org.eclipse.e4.primaryNavigationStack</tags>
@@ -94,7 +94,7 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_TKPQ_v2rEemLzMWh8NOp_g" elementId="org.eclipse.egit.ui.RepositoriesView" toBeRendered="false" ref="_TKPS6f2rEemLzMWh8NOp_g"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_TKPQ__2rEemLzMWh8NOp_g" containerData="7750" selectedElement="_TKPRAP2rEemLzMWh8NOp_g">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_TKPQ__2rEemLzMWh8NOp_g" containerData="7750" selectedElement="_TKPRCf2rEemLzMWh8NOp_g">
               <children xsi:type="basic:PartSashContainer" xmi:id="_TKPRAP2rEemLzMWh8NOp_g" containerData="7085" selectedElement="_TKPRAf2rEemLzMWh8NOp_g" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_TKPRAf2rEemLzMWh8NOp_g" elementId="org.eclipse.ui.editorss" containerData="8006" ref="_TKPSXv2rEemLzMWh8NOp_g"/>
                 <children xsi:type="basic:PartSashContainer" xmi:id="_TKPRAv2rEemLzMWh8NOp_g" containerData="1994" selectedElement="_TKPRBf2rEemLzMWh8NOp_g">
@@ -247,7 +247,7 @@
       <tags>categoryTag:General</tags>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_TKPSw_2rEemLzMWh8NOp_g" elementId="org.eclipse.ui.views.ProblemView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Problems" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/problems_view.png" tooltip="" closeable="true">
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot; categoryGroup=&quot;org.eclipse.ui.ide.severity&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.problemsGenerator&quot; partName=&quot;Problems&quot;>&#xD;&#xA;&lt;expanded>&#xD;&#xA;&lt;category IMemento.internal.id=&quot;Warnings (18 items)&quot;/>&#xD;&#xA;&lt;/expanded>&#xD;&#xA;&lt;columnWidths org.eclipse.ui.ide.locationField=&quot;90&quot; org.eclipse.ui.ide.markerType=&quot;90&quot; org.eclipse.ui.ide.pathField=&quot;120&quot; org.eclipse.ui.ide.resourceField=&quot;90&quot; org.eclipse.ui.ide.severityAndDescriptionField=&quot;300&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xD;&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot; categoryGroup=&quot;org.eclipse.ui.ide.severity&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.problemsGenerator&quot; partName=&quot;Problems&quot;>&#xD;&#xA;&lt;expanded>&#xD;&#xA;&lt;category IMemento.internal.id=&quot;Warnings (3 items)&quot;/>&#xD;&#xA;&lt;/expanded>&#xD;&#xA;&lt;columnWidths org.eclipse.ui.ide.locationField=&quot;90&quot; org.eclipse.ui.ide.markerType=&quot;90&quot; org.eclipse.ui.ide.pathField=&quot;120&quot; org.eclipse.ui.ide.resourceField=&quot;90&quot; org.eclipse.ui.ide.severityAndDescriptionField=&quot;300&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
       <menus xmi:id="_TKPSxP2rEemLzMWh8NOp_g" elementId="org.eclipse.ui.views.ProblemView">
@@ -432,7 +432,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_TKP4Z_2rEemLzMWh8NOp_g" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_BERQUP87Eem9NeLdf13GBQ" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_TKS7ev2rEemLzMWh8NOp_g"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_49VwAP87EemXDsYvETMG4A" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_TKS7ev2rEemLzMWh8NOp_g"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_TKP4df2rEemLzMWh8NOp_g" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -456,7 +456,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_TKP4wf2rEemLzMWh8NOp_g" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_BEXW9_87Eem9NeLdf13GBQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_TKSV3_2rEemLzMWh8NOp_g"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_49b2oP87EemXDsYvETMG4A" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_TKSV3_2rEemLzMWh8NOp_g"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_TKP4y_2rEemLzMWh8NOp_g" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
